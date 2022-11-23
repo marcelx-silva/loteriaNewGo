@@ -2,17 +2,19 @@ package dominio.loteria;
 
 import dominio.jogo.Jogo;
 import enums.TipoLoteria;
+import exceptions.IncompatibleGameType;
 
 import java.util.Set;
 
 public abstract class LoteriaAbs implements Loteria {
-    protected String nome;
     protected TipoLoteria tipo;
     protected Set<Jogo> jogos;
     protected Integer valorDecimalMaximo;
     protected Integer quantValoresSeremSorteados;
     protected Double valorJogo;
     protected Integer quantidadeJogosPresenteNaLoteria;
+
+
 
     LoteriaAbs(){
         this.quantidadeJogosPresenteNaLoteria = 0;
@@ -41,7 +43,6 @@ public abstract class LoteriaAbs implements Loteria {
         return jogos;
     }
 
-    public String getNome() {
-        return nome;
-    }
+    @Override
+    public abstract void adicionarJogos(Jogo jogos) throws IncompatibleGameType;
 }
