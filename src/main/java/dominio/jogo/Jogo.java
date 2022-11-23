@@ -2,6 +2,7 @@ package dominio.jogo;
 
 import dominio.loteria.Loteria;
 import dominio.participante.Participante;
+import enums.TipoLoteria;
 import exceptions.InsufficientMoney;
 
 import java.util.HashMap;
@@ -42,5 +43,17 @@ public class Jogo {
         if (valorPagoPeloJogador<valorJogoLoteria){
             throw new InsufficientMoney("Quantia insuficiente para comprar um jogo!");
         }
+    }
+
+    public Map<Integer, List<Integer>> getJogos() {
+        return jogos;
+    }
+
+    public Participante getParticipante() {
+        return participante;
+    }
+
+    public TipoLoteria getTipoLoteriaJogo() {
+        return loteria.getTipoLoteria();
     }
 }
